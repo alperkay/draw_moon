@@ -8,6 +8,7 @@
 </template>
 
 <script lang="ts">
+import store from "@/store";
 import { defineComponent } from "vue";
 
 export default defineComponent({
@@ -76,6 +77,8 @@ export default defineComponent({
     },
     onMouseDown() {
       this.mouseDown = true;
+      store.commit("draw", true);
+
       this.drawLine(
         this.ctx as CanvasRenderingContext2D,
         this.mouseX as number,
@@ -87,6 +90,7 @@ export default defineComponent({
       this.mouseDown = false;
       this.lastX = -1;
       this.lastY = -1;
+      store.commit("draw", false);
     },
     onMouseMove(e: MouseEvent) {
       this.getMousePos(e);
@@ -132,6 +136,7 @@ export default defineComponent({
     onTouchEnd() {
       this.lastX = -1;
       this.lastY = -1;
+      store.commit("draw", false);
     },
     onTouchMove(e: TouchEvent) {
       // Update the touch co-ordinates
