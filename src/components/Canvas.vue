@@ -47,7 +47,7 @@ export default defineComponent({
       }
 
       // Select a fill style
-      ctx.strokeStyle = "black";
+      ctx.strokeStyle = this.selectedColor;
 
       // Set the line "cap" style to round, so lines at different angles can join into each other
       ctx.lineCap = "round";
@@ -163,6 +163,11 @@ export default defineComponent({
       this.canvas.addEventListener("touchstart", this.onTouchStart, false);
       this.canvas.addEventListener("touchend", this.onTouchEnd, false);
       this.canvas.addEventListener("touchmove", this.onTouchMove, false);
+    }
+  },
+  computed: {
+    selectedColor: function() {
+      return store.state.selectedColor;
     }
   }
 });

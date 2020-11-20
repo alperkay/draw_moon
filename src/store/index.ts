@@ -4,13 +4,13 @@ import chroma from "chroma-js";
 interface AppState {
   drawing: boolean;
   colorPalette: string[];
-  selectedColorIndex: number;
+  selectedColor: string;
 }
 
 const state: AppState = {
   drawing: false,
   colorPalette: [],
-  selectedColorIndex: 0
+  selectedColor: "black"
 };
 
 export default createStore({
@@ -20,10 +20,10 @@ export default createStore({
       state.drawing = n;
     },
     createColorPalette(state) {
-      state.colorPalette = chroma.scale(["red", "pink"]).colors(5);
+      state.colorPalette = chroma.scale(["E53B00", "008DBF"]).colors(12);
     },
     selectColor(state, n) {
-      state.selectedColorIndex = n;
+      state.selectedColor = n;
     }
   },
   getters: {
