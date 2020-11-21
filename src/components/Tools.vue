@@ -8,7 +8,9 @@
       class="tools-toggle"
       @click="toggleToolsVisible"
       :style="{ 'background-color': selectedColor }"
-    ></div>
+    >
+      hey
+    </div>
     <transition>
       <ul
         id="tools"
@@ -83,6 +85,11 @@ export default defineComponent({
       box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     }
     z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $base-color;
+    font-size: $font-40;
   }
   #tools {
     width: 600px;
